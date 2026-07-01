@@ -165,7 +165,18 @@
   <div class="container narrow center" style="position: relative; z-index: 1;">
 
    <p class="section-kicker" style="color: var(--gold, #B08D57);">Our Vision</p>
-   <h2>To become a trusted market bridge<br>between Japan and Taiwan.</h2>
+   <style>
+  .vision-title {
+    white-space: nowrap; /* 強制電腦版只能在有 <br> 的地方換行 */
+  }
+  /* 當螢幕比較小（例如手機）時，自動恢復正常換行，保護版面 */
+  @media (max-width: 768px) {
+    .vision-title {
+      white-space: normal;
+    }
+  }
+</style>
+<h2 class="vision-title">To become a trusted market bridge<br>between Japan and Taiwan.</h2>
      <div class="cards three">
           <div class="mini-card"><span>We connect Japanese suppliers with Taiwan customers through curated products, localized communication, and AI-enabled cross-border operations.</span></div>
           <div class="mini-card"><span>日台間の信頼ある市場の架け橋となること。価値ある商品の厳選、台湾市場に合わせたローカライズ、そしてAIを駆使した越境プラットフォームにより、日本の優れた作り手と台湾の顧客を確かな絆でつなぎます。</span></div>
