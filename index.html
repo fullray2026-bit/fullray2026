@@ -148,8 +148,19 @@
       </div>
     </section>
 
-   <section id="vision" class="section vision-section">
-  <div class="container narrow center">
+  <section id="vision" class="section vision-section" style="position: relative; overflow: hidden;">
+  
+  <!-- 深色背景專用光暈開始 -->
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
+    <!-- 左上角的金黃色圈圈 (在深綠底色上會有高級的透光感) -->
+    <div style="position: absolute; top: -15%; left: -10%; width: 45vw; height: 45vw; max-width: 600px; max-height: 600px; background: var(--gold, #B08D57); border-radius: 50%; filter: blur(90px); opacity: 0.35;"></div>
+    <!-- 右下角的柔和亮光圈圈 (增加深色空間的立體層次) -->
+    <div style="position: absolute; bottom: -15%; right: -10%; width: 45vw; height: 45vw; max-width: 600px; max-height: 600px; background: #F7F4EE; border-radius: 50%; filter: blur(90px); opacity: 0.15;"></div>
+  </div>
+  <!-- 深色背景專用光暈結束 -->
+
+  <!-- 加入 relative 與 z-index 確保原本的文字與卡片浮在光暈上方 -->
+  <div class="container narrow center" style="position: relative; z-index: 1;">
     <p class="section-kicker">Our Vision</p>
     <h2>To become a trusted market bridge between Japan and Taiwan.</h2>
      <div class="cards three">
