@@ -68,8 +68,19 @@
       </div>
     </section>
 
-    <section id="about" class="section about-section">
-      <div class="container split">
+   <section id="about" class="section about-section" style="position: relative; overflow: hidden;">
+  
+  <!-- 綠黃光暈背景開始 -->
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
+    <!-- 左上角的深綠色圈圈 -->
+    <div style="position: absolute; top: -10%; left: -5%; width: 35vw; height: 35vw; max-width: 400px; max-height: 400px; background: var(--green, #2F4F4F); border-radius: 50%; filter: blur(90px); opacity: 0.12;"></div>
+    <!-- 右下角的金黃色圈圈 -->
+    <div style="position: absolute; bottom: -10%; right: -5%; width: 35vw; height: 35vw; max-width: 400px; max-height: 400px; background: var(--gold, #B08D57); border-radius: 50%; filter: blur(90px); opacity: 0.12;"></div>
+  </div>
+  <!-- 綠黃光暈背景結束 -->
+
+  <!-- 加入 relative 與 z-index 確保原本的文字浮在光暈上方 -->
+  <div class="container split" style="position: relative; z-index: 1;">
         <div>
           <p class="section-kicker">About Us</p>
           <h2>A Fukuoka-based gateway connecting Japanese suppliers with the Taiwan market.</h2>
