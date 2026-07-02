@@ -292,34 +292,27 @@
   <!-- 終極發光版光暈背景結束 -->
 
   <!-- 加入 relative 與 z-index 確保原本的文字與卡片浮在光暈上方 -->
-  <div class="container narrow center" style="position: relative; z-index: 1;">
+  <div class="container narrow center" style="position: relative; z-index: 1; text-align: center;">
 
-   <p class="section-kicker" style="color: var(--gold, #B08D57);">Our Vision</p>
-   <style>
-  .vision-title {
-    white-space: nowrap; /* 強制電腦版只能在有 <br> 的地方換行 */
-  }
-  /* 當螢幕比較小（例如手機）時，自動恢復正常換行，保護版面 */
-  @media (max-width: 768px) {
-    .vision-title {
-      white-space: normal;
+  <p class="section-kicker" style="color: var(--gold); text-align: center; margin: 0 auto 16px;">Our Vision</p>
+  
+  <h2 class="vision-title" style="text-align: center; margin: 0 auto 36px; white-space: nowrap;">
+    To build a sustainable gateway<br>between Japan and Global Markets.
+  </h2>
+
+  <style>
+    /* 這裡保留你原本設定的手機版與卡片樣式，並修正置中 */
+    @media (max-width: 768px) {
+      .vision-title { white-space: normal !important; }
     }
-  }
-</style>
-<h2 class="vision-title">To build a sustainable gateway <br>between Japan and Global Markets.</h2>
- <!-- 卡片專屬樣式設定開始 -->
-<style>
-  .vision-cards .mini-card {
-    /* 換回帶有暖調的奶油米色 */
-    background-color: rgba(247, 244, 238, 0.95) !important; 
-    font-weight: 500 !important; 
-  }
-  .vision-cards .mini-card span {
-    /* 保持深墨綠色，確保在米色背景上依然清晰好讀 */
-    color: #1A2F2F !important; 
-  }
-</style>
-<!-- 卡片專屬樣式設定結束 -->
+    .vision-cards .mini-card {
+      background-color: rgba(247, 244, 238, 0.95) !important;
+      font-weight: 500 !important;
+    }
+    .vision-cards .mini-card span {
+      color: #1A2F2F !important;
+    }
+  </style>
 
 <div class="cards vision-cards" style="grid-template-columns: 1fr;">
   <div class="mini-card" style="padding: 48px; text-align: left; display: flex; flex-direction: column; gap: 28px; min-height: auto;">
