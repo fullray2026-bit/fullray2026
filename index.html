@@ -277,6 +277,58 @@
         </div>
       </div>
     </section>
+
+<section id="vision" class="section vision-section" style="position: relative; overflow: hidden;">
+  
+  <!-- 終極發光版光暈背景開始 -->
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
+    <!-- 左上角：耀眼的亮金黃色光源 (加上 screen 濾色模式) -->
+    <div style="position: absolute; top: -20%; left: -15%; width: 60vw; height: 60vw; max-width: 700px; max-height: 700px; background: #D4AF37; border-radius: 50%; filter: blur(100px); opacity: 0.55; mix-blend-mode: screen;"></div>
+    <!-- 右下角：高亮度奶油白光 (加上 screen 濾色模式) -->
+    <div style="position: absolute; bottom: -20%; right: -10%; width: 50vw; height: 50vw; max-width: 600px; max-height: 600px; background: #FFF; border-radius: 50%; filter: blur(100px); opacity: 0.25; mix-blend-mode: screen;"></div>
+    <!-- 右上角：提亮的湖水綠光 (增加空間立體感) -->
+    <div style="position: absolute; top: 10%; right: -5%; width: 40vw; height: 40vw; max-width: 500px; max-height: 500px; background: #528B8B; border-radius: 50%; filter: blur(90px); opacity: 0.5; mix-blend-mode: screen;"></div>
+  </div>
+  <!-- 終極發光版光暈背景結束 -->
+
+  <!-- 加入 relative 與 z-index 確保原本的文字與卡片浮在光暈上方 -->
+  <div class="container narrow center" style="position: relative; z-index: 1;">
+
+   <p class="section-kicker" style="color: var(--gold, #B08D57);">Our Vision</p>
+   <style>
+  .vision-title {
+    white-space: nowrap; /* 強制電腦版只能在有 <br> 的地方換行 */
+  }
+  /* 當螢幕比較小（例如手機）時，自動恢復正常換行，保護版面 */
+  @media (max-width: 768px) {
+    .vision-title {
+      white-space: normal;
+    }
+  }
+</style>
+<h2 class="vision-title">To become a trusted market bridge<br>between Japan and Taiwan.</h2>
+ <!-- 卡片專屬樣式設定開始 -->
+<style>
+  .vision-cards .mini-card {
+    /* 換回帶有暖調的奶油米色 */
+    background-color: rgba(247, 244, 238, 0.95) !important; 
+    font-weight: 500 !important; 
+  }
+  .vision-cards .mini-card span {
+    /* 保持深墨綠色，確保在米色背景上依然清晰好讀 */
+    color: #1A2F2F !important; 
+  }
+</style>
+<!-- 卡片專屬樣式設定結束 -->
+
+<div class="cards three vision-cards">
+  <div class="mini-card"><span>Connecting Japanese excellence with customers worldwide through curated selections, localized insights, and AI-driven cross-border operations.</span></div>
+  <div class="mini-card"><span>日本と世界の信頼ある市場の架け橋となること。価値ある商品の厳選、グローバル市場に最適化したローカライズ、 wood そしてAIを駆使した越境プラットフォームを通じて、日本の優れた作り手と世界中の顧客を確かな絆でつなぎます。</span></div>
+  <div class="mini-card"><span>福瑞株式会社致力於成為連結日本優秀供應商與全球市場的誠信紐帶，透過策略性選品、深耕各國文化的在地化溝通，並運用 AI 跨境平台技術，開創並延續長期的商業與品牌價值。</span></div>
+</div>
+  
+</section>
+     
     <!-- COMPANY SECTION -->
     <section id="company" class="section company-section">
       <div class="container split">
