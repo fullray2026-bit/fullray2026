@@ -226,13 +226,18 @@
           <p>日本商品の台湾展開、商品仕入れ、ブランド連携、越境販売に関するご相談は、下記フォームよりお問い合わせください。</p>
           <p class="zh">歡迎日本供應商、台灣企業與合作夥伴洽詢商品引進、品牌合作與跨境銷售機會。</p>
         </div>
-       <form class="contact-form" action="https://formspree.io/f/meebpjlv" method="POST">
-  <label>Name<input type="text" name="name" placeholder="Your name" required></label>
-  <label>Company<input type="text" name="company" placeholder="Company name"></label>
-  <label>Email<input type="email" name="email" placeholder="your@email.com" required></label>
-  <label>Message<textarea name="message" rows="5" placeholder="Please write your message" required></textarea></label>
-  <button type="submit">Send Message</button>
+       <form id="contact-form" action="https://formspree.io/f/meebpjlv" method="POST">
+  <label>Name<input type="text" name="name" required></label>
+  <label>Company<input type="text" name="company"></label>
+  <label>Email<input type="email" name="email" required></label>
+  <label>Message<textarea name="message" rows="5" required></textarea></label>
+  <button type="submit" id="submit-button">Send Message</button>
 </form>
+
+<div id="thank-you-message" style="display:none;">
+  <h3>感謝您的聯絡！</h3>
+  <p>我們已經收到您的訊息，會盡快與您聯繫。</p>
+</div>
       </div>
     </section>
   </main>
@@ -243,5 +248,28 @@
       <p>Japan Selection × Taiwan Market × AI Platform</p>
     </div>
   </footer>
-</body>
+<script>
+      const form = document.getElementById("contact-form");
+      const thankYou = document.getElementById("thank-you-message");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.style.display = "none";
+          thankYou.style.display = "block";
+        } else {
+          alert("送出失敗，請再試一次。");
+        }
+      });
+    </script>
+  </body> 
 </html>
+
