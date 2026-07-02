@@ -8,7 +8,120 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --green: #2F4F4F;
+      --cream: #F7F4EE;
+      --text: #333333;
+      --muted: #6B6B6B;
+      --gold: #B08D57;
+      --white: #FFFFFF;
+      --line: rgba(47,79,79,0.16);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--cream);
+      font-family: 'Montserrat', 'Noto Sans JP', 'Noto Sans TC', sans-serif;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .site-header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(247,244,238,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-wrap { height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { display: flex; align-items: center; gap: 12px; font-weight: 700; }
+    .logo-mark { width: 42px; height: 42px; border: 1px solid var(--green); display: grid; place-items: center; color: var(--cream); background: var(--green); border-radius: 50%; font-family: 'Noto Sans JP', serif; }
+    .logo-text { line-height: 1.2; letter-spacing: .04em; }
+    .logo-text small { font-size: 11px; color: var(--muted); font-weight: 500; }
+    .main-nav { display: flex; gap: 26px; font-size: 13px; letter-spacing: .08em; color: var(--green); }
+    .hero { min-height: 720px; display: flex; align-items: center; padding: 90px 0; border-bottom: 1px solid var(--line); }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 64px; align-items: center; }
+    .eyebrow, .section-kicker { color: var(--gold); text-transform: uppercase; letter-spacing: .16em; font-size: 12px; font-weight: 700; margin: 0 0 16px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(24px, 3.5vw, 40px) !important; line-height: 1.4 !important; max-width: 100% !important; width: max-content !important; letter-spacing: -0.01em; color: var(--green); margin-bottom: 28px; }
+    h2 { font-size: clamp(30px, 4vw, 52px); line-height: 1.12; letter-spacing: -0.04em; color: var(--green); margin-bottom: 24px; }
+    h3 { font-size: 22px; line-height: 1.2; color: var(--green); }
+    .hero-lead { font-size: 22px; color: var(--green); font-weight: 500; max-width: 620px; margin-bottom: 16px; }
+    .hero-sub, .zh { color: var(--muted); }
+    .button-row { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
+    .btn, .contact-form button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 999px; font-weight: 700; letter-spacing: .04em; border: 1px solid var(--green); }
+    .btn.primary, .contact-form button { background: var(--green); color: var(--white); }
+    .btn.secondary { color: var(--green); background: transparent; }
+    .hero-visual { position: relative; min-height: 460px; border-radius: 36px; background: linear-gradient(145deg, rgba(47,79,79,0.14), rgba(176,141,87,0.13)); overflow: hidden; border: 1px solid var(--line); }
+    .orb { position: absolute; border-radius: 50%; filter: blur(2px); opacity: .85; }
+    .orb-one { width: 260px; height: 260px; background: rgba(47,79,79,.22); top: 40px; left: -70px; }
+    .orb-two { width: 320px; height: 320px; background: rgba(176,141,87,.20); bottom: -90px; right: -80px; }
+    
+    .visual-card { 
+      position: absolute; 
+      inset: auto 42px 42px 42px; 
+      padding: 34px; 
+      border-radius: 24px; 
+      background: rgba(255,255,255,.72); 
+      border: 1px solid rgba(255,255,255,.8); 
+      box-shadow: 0 24px 70px rgba(47,79,79,.14); 
+      display: grid; 
+      gap: 8px; 
+    }
+    .visual-card strong { font-size: 26px; color: var(--green); }
+    .visual-card span { color: var(--gold); letter-spacing: .14em; text-transform: uppercase; font-size: 12px; font-weight: 700; }
+
+    .section { padding: 110px 0; }
+    .split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: start; }
+    .body-copy p { font-size: 17px; }
+    .services-section, .company-section { background: var(--white); }
+    .cards { display: grid; gap: 22px; margin-top: 36px; }
+    .cards.three { grid-template-columns: repeat(3, 1fr); }
+    .cards.four { grid-template-columns: repeat(4, 1fr); }
+    .card, .mini-card, .contact-box { background: var(--cream); border: 1px solid var(--line); border-radius: 28px; padding: 32px; }
+    .card .icon { width: 54px; height: 54px; border-radius: 18px; display: grid; place-items: center; background: var(--green); color: var(--white); font-weight: 800; margin-bottom: 26px; }
+    ul { padding-left: 18px; color: var(--muted); }
+    .why-section { background: #EFEAE0; }
+    .mini-card { min-height: 150px; display: flex; flex-direction: column; justify-content: space-between; background: rgba(255,255,255,.45); }
+    .mini-card strong { color: var(--green); font-size: 17px; line-height: 1.3; }
+    .mini-card span { color: var(--muted); font-size: 14px; }
+    
+    /* 確保卡片內加粗的繁中字體維持原本的柔和深色 */
+    .mini-card span strong { color: var(--muted) !important; font-weight: 700; }
+
+    .narrow { max-width: 760px; }
+    .center { text-align: center; }
+    .vision-section { background: var(--green); color: rgba(255,255,255,.82); }
+    .vision-section h2, .vision-section .section-kicker { color: var(--white); }
+    .company-list { margin: 0; border-top: 1px solid var(--line); }
+    .company-list div { display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+    dt { color: var(--green); font-weight: 700; }
+    dd { margin: 0; color: var(--muted); }
+    .contact-box { display: grid; grid-template-columns: .9fr 1.1fr; gap: 54px; background: var(--white); }
+    .contact-form { display: grid; gap: 16px; }
+    label { display: grid; gap: 6px; color: var(--green); font-size: 13px; font-weight: 700; letter-spacing: .04em; }
+    input, textarea { width: 100%; border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; font: inherit; background: var(--cream); color: var(--text); }
+    textarea { resize: vertical; }
+    .contact-form button { border: none; cursor: pointer; width: fit-content; }
+    .form-note { font-size: 12px; color: var(--muted); margin: 0; }
+    .site-footer { padding: 32px 0; background: var(--green); color: rgba(255,255,255,.72); font-size: 13px; }
+    .footer-grid { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer-grid p { margin: 0; }
+    @media (max-width: 900px) {
+      .main-nav { display: none; }
+      .hero-grid, .split, .contact-box { grid-template-columns: 1fr; }
+      .cards.three, .cards.four { grid-template-columns: 1fr; }
+      .hero { min-height: auto; padding: 70px 0; }
+      .section { padding: 76px 0; }
+      .company-list div { grid-template-columns: 1fr; gap: 4px; }
+    }
+    .vision-title { white-space: nowrap; }
+    @media (max-width: 768px) { .vision-title { white-space: normal; } }
+    .vision-cards .mini-card { background-color: rgba(247, 244, 238, 0.95) !important; font-weight: 500 !important; }
+    .vision-cards .mini-card span { color: #1A2F2F !important; }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -27,7 +140,7 @@
     </div>
   </header>
 
-  <main id="top">
+   <main id="top">
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
@@ -63,35 +176,30 @@
 <div class="card-tag" style="font-weight: 700; letter-spacing: 0.1em; color: var(--gold, #B08D57); margin-top: 15px;">
   Global Markets 🛬
 </div>
-          </div>
+          </div> 
         </div>
       </div>
     </section>
 
-   <section id="about" class="section about-section" style="position: relative; overflow: hidden;">
-  
- <!-- 綠黃光暈背景開始 -->
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
-  <!-- 左上角的深綠色圈圈 (透明度拉高到 40%，範圍放大) -->
-  <div style="position: absolute; top: -10%; left: -5%; width: 45vw; height: 45vw; max-width: 600px; max-height: 600px; background: var(--green, #2F4F4F); border-radius: 50%; filter: blur(80px); opacity: 0.4;"></div>
-  <!-- 右下角的金黃色圈圈 (透明度拉高到 40%，範圍放大) -->
-  <div style="position: absolute; bottom: -10%; right: -5%; width: 45vw; height: 45vw; max-width: 600px; max-height: 600px; background: var(--gold, #B08D57); border-radius: 50%; filter: blur(80px); opacity: 0.4;"></div>
-</div>
-<!-- 綠黃光暈背景結束 -->
-
-  <!-- 加入 relative 與 z-index 確保原本的文字浮在光暈上方 -->
-  <div class="container split" style="position: relative; z-index: 1;">
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section about-section" style="position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
+        <div style="position: absolute; top: -10%; left: -5%; width: 45vw; height: 45vw; max-width: 600px; max-height: 600px; background: var(--green); border-radius: 50%; filter: blur(80px); opacity: 0.4;"></div>
+        <div style="position: absolute; bottom: -10%; right: -5%; width: 45vw; height: 45vw; max-width: 600px; max-height: 600px; background: var(--gold); border-radius: 50%; filter: blur(80px); opacity: 0.4;"></div>
+      </div>
+      <div class="container split" style="position: relative; z-index: 1;">
         <div>
           <p class="section-kicker">About Us</p>
-          <h2>A Fukuoka-based gateway connecting Japanese suppliers with the Global Markets.</h2>
+          <h2>A Fukuoka-based gateway connecting Japanese suppliers with Global Markets.</h2>
         </div>
         <div class="body-copy">
-          <p>福瑞株式会社（フクズイカブシキガイシャ）は、福岡を拠点とする日本法人です。日本のメーカー、地域ブランド、そして特色ある商品をグローバル市場へ展開するため、越境ビジネス、商品選定、デジタルマーケティング、そしてAIプラットフォームを融合させた事業を展開しています。</p>
-          <p>日本の供給事業者（サプライヤー）にとっては、世界市場への販売・発信・顧客接点づくりを支援するグローバルな窓口となり、世界中のお客様にとっては、信頼できる日本発の商品と情報に出会える最高の入口を目指します。</p>
-          <p class="zh">立足福岡，連結全球。福瑞株式会社作為日本在地法人，不僅致力於協助日本品牌穩健拓展全球市場，更為世界各地的企業與消費者，嚴選兼具卓越品質、深厚底蘊與生活美學的日本好物。</p>
+          <p>福瑞株式会社（フクズイカブシキガイシャ）は、福岡を拠点とする日本法人です。日本のメーカー、地域ブランド、 tender 特色ある商品をグローバル市場へ展開するため、越境ビジネス、商品選定、デジタルマーケティング、 AIプラットフォームを融合させた事業を展開しています。</p>
+          <p>日本の供給事業者（サプライヤー）にとっては、世界市場への販売・発信・顧客接点づくりを支援するグローバルな窓口となり、世界中のお客様にとっては、信頼できる日本発の商品と情報に出會える最高の入口を目指します。</p>
+          <p class="zh">福瑞株式会社（フクズイカブシキガイシャ）是一家以福岡為據點的日本法人。為了將日本的製造商、地方品牌及特色商品推向全球市場，我們展開了結合跨境商務、商品選定、數位行銷與 AI 平台的融合事業。</p>
+ <p class="zh">對於日本的供應商而言，我們是協助其向世界市場銷售、傳播並建立客戶鏈結的全球窗口。對於世界各地的客戶而言，我們致力於成為能與值得信賴的日本商品及資訊相遇的最佳入口。更希望為世界各地的企業與消費者，嚴選兼具卓越品質、深厚底緯與生活美學的日本好物。</p>
         </div>
       </div>
-    </section>
+     </section>
 
     <section id="services" class="section services-section">
       <div class="container">
@@ -135,70 +243,41 @@
       </div>
     </section>
 
-    <section class="section why-section">
+  
+<section class="section why-section">
       <div class="container">
         <p class="section-kicker">Why Full Ray</p>
         <h2>From Fukuoka to Global Markets, practical support for cross-border growth.</h2>
         <div class="cards four">
-          <div class="mini-card"><strong>Japan-Global Markets Network</strong><span>日本・グローバル市場への理解<br><em>整合日本頂級產業資源，驅動無國界市場的高效媒合</em></span></div>
-          <div class="mini-card"><strong>Fukuoka-based Company</strong><span>日本法人としての信頼性<br><em>以福岡日本法人作為合作窗口</em></span></div>
-          <div class="mini-card"><strong>Cross-Border Expertise</strong><span>越境取引・運営知識<br><em>具備跨境銷售與市場導入能力</em></span></div>
-          <div class="mini-card"><strong>AI-Driven Operation</strong><span>AI活用による効率化<br><em>以 AI 提升商品整理與營運效率</em></span></div>
+          
+          <div class="mini-card">
+            <strong>日本・グローバル市場への理解</strong>
+            <span style="display: block; font-size: 14px; color: var(--muted); line-height: 1.5;">Japan-Global Networks</span>
+            <span style="display: block; font-size: 14px; color: var(--muted); font-weight: 700; margin-top: 4px; line-height: 1.5;">整合日本頂級產業資源，驅動無國界市場的高效媒合</span>
+          </div>
+
+          <div class="mini-card">
+            <strong>日本法人としての信頼性</strong>
+            <span style="display: block; font-size: 14px; color: var(--muted); line-height: 1.5;">Fukuoka-based Company</span>
+            <span style="display: block; font-size: 14px; color: var(--muted); font-weight: 700; margin-top: 4px; line-height: 1.5;">以福岡日本法人作為全球合作窗口</span>
+          </div>
+
+          <div class="mini-card">
+            <strong>越境取引・運営知識</strong>
+            <span style="display: block; font-size: 14px; color: var(--muted); line-height: 1.5;">Cross-Border Expertise</span>
+            <span style="display: block; font-size: 14px; color: var(--muted); font-weight: 700; margin-top: 4px; line-height: 1.5;">具備跨境銷售與市場導入能力</span>
+          </div>
+
+          <div class="mini-card">
+            <strong>AI活用による効率化</strong>
+            <span style="display: block; font-size: 14px; color: var(--muted); line-height: 1.5;">AI-Driven Operations</span>
+            <span style="display: block; font-size: 14px; color: var(--muted); font-weight: 700; margin-top: 4px; line-height: 1.5;">以 AI 核心技術大幅提升營運效率</span>
+          </div>
+
         </div>
       </div>
     </section>
-
-<section id="vision" class="section vision-section" style="position: relative; overflow: hidden;">
-  
-  <!-- 終極發光版光暈背景開始 -->
-  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
-    <!-- 左上角：耀眼的亮金黃色光源 (加上 screen 濾色模式) -->
-    <div style="position: absolute; top: -20%; left: -15%; width: 60vw; height: 60vw; max-width: 700px; max-height: 700px; background: #D4AF37; border-radius: 50%; filter: blur(100px); opacity: 0.55; mix-blend-mode: screen;"></div>
-    <!-- 右下角：高亮度奶油白光 (加上 screen 濾色模式) -->
-    <div style="position: absolute; bottom: -20%; right: -10%; width: 50vw; height: 50vw; max-width: 600px; max-height: 600px; background: #FFF; border-radius: 50%; filter: blur(100px); opacity: 0.25; mix-blend-mode: screen;"></div>
-    <!-- 右上角：提亮的湖水綠光 (增加空間立體感) -->
-    <div style="position: absolute; top: 10%; right: -5%; width: 40vw; height: 40vw; max-width: 500px; max-height: 500px; background: #528B8B; border-radius: 50%; filter: blur(90px); opacity: 0.5; mix-blend-mode: screen;"></div>
-  </div>
-  <!-- 終極發光版光暈背景結束 -->
-
-  <!-- 加入 relative 與 z-index 確保原本的文字與卡片浮在光暈上方 -->
-  <div class="container narrow center" style="position: relative; z-index: 1;">
-
-   <p class="section-kicker" style="color: var(--gold, #B08D57);">Our Vision</p>
-   <style>
-  .vision-title {
-    white-space: nowrap; /* 強制電腦版只能在有 <br> 的地方換行 */
-  }
-  /* 當螢幕比較小（例如手機）時，自動恢復正常換行，保護版面 */
-  @media (max-width: 768px) {
-    .vision-title {
-      white-space: normal;
-    }
-  }
-</style>
-<h2 class="vision-title">To become a trusted market bridge<br>between Japan and Global Markets.</h2>
- <!-- 卡片專屬樣式設定開始 -->
-<style>
-  .vision-cards .mini-card {
-    /* 換回帶有暖調的奶油米色 */
-    background-color: rgba(247, 244, 238, 0.95) !important; 
-    font-weight: 500 !important; 
-  }
-  .vision-cards .mini-card span {
-    /* 保持深墨綠色，確保在米色背景上依然清晰好讀 */
-    color: #1A2F2F !important; 
-  }
-</style>
-<!-- 卡片專屬樣式設定結束 -->
-
-<div class="cards three vision-cards">
-  <div class="mini-card"><span>We connect Japanese suppliers with Global Markets customers through curated products, localized communication, and AI-enabled cross-border operations.</span></div>
-  <div class="mini-card"><span>日本と世界の信頼ある市場の架け橋となること。価値ある商品の厳選、グローバル市場に合わせたローカライズ、長年の経験と最新技術を駆使した越境プラットフォームにより、日本の優れた作り手と世界中の顧客を確かな絆でつなぎます。</span></div>
-  <div class="mini-card"><span>福瑞株式会社以成為日本供應商與全球市場之間值得信賴的橋樑為願景，透過選品、在地化溝通與 AI 跨境營運創造長期商業價值。</span></div>
-</div>
-  
-</section>
-
+    <!-- COMPANY SECTION -->
     <section id="company" class="section company-section">
       <div class="container split">
         <div>
@@ -206,18 +285,19 @@
           <h2>Company Information</h2>
         </div>
         <dl class="company-list">
-          <div><dt>会社名</dt><dd>福瑞株式会社（フクズイ カブシキガイシャ）<br>Full Ray Co., Ltd.</dd></div>
-    <div><dt>法人番號</dt><dd>7290001114326</dd></div>
-    <div><dt>設立</dt><dd>2026年5月</dd></div>
-    <div><dt>資本金</dt><dd>1,700万円</dd></div>
-    <div><dt>所在地</dt><dd>〒810-0001 福岡県福岡市中央区天神2丁目3-10<br>天神パインクレスト1114号室</dd></div>
-    <div><dt>主要取引銀行</dt><dd>福岡銀行</dd></div>
-    <div><dt>事業内容</dt><dd>AI越境プラットフォーム / Digital Marketing<br>日本選品 / グローバル市場展開</dd></div>
-    <div><dt>代表者</dt><dd>代表取締役 チエン ホー パン</dd></div>
+          <div><dt>会社名</dt><dd>福瑞株式会社（フクズイカブシキガイシャ）<br>Full Ray Co., Ltd.</dd></div>
+          <div><dt>法人番号</dt><dd>7290001114326</dd></div>
+          <div><dt>設立</dt><dd>2026年5月</dd></div>
+          <div><dt>資本金</dt><dd>1,700万円</dd></div>
+          <div><dt>所在地</dt><dd>〒810-0001 福岡県福岡市中央区天神2丁目3-10<br>天神パインクレスト1114号室</dd></div>
+          <div><dt>主要取引銀行</dt><dd>福岡銀行</dd></div>
+          <div><dt>事業内容</dt><dd>AI越境プラットフォーム / デジタルマーケティング<br>日本選品 / グローバル市場展開</dd></div>
+          <div><dt>代表者</dt><dd>代表取締役 チェン ホーパン</dd></div>
         </dl>
       </div>
     </section>
 
+    <!-- CONTACT SECTION -->
     <section id="contact" class="section contact-section">
       <div class="container contact-box">
         <div>
@@ -225,19 +305,19 @@
           <h2>Connecting Japanese Excellence with Global Markets.</h2>
           <p>日本商品のグローバル展開、商品仕入れ、ブランド連携、越境販売に関するご相談は、下記フォームよりお問い合わせください。</p>
           <p class="zh">歡迎日本供應商、全球企業與跨國合作夥伴前來洽詢商品引進、品牌合作與跨境銷售機會。</p>
+ <p>We welcome Japanese suppliers, global enterprises, and international partners to explore opportunities in product sourcing, brand collaboration, and cross-border sales.</p>
         </div>
-       <form id="contact-form" action="https://formspree.io/f/meebpjlv" method="POST">
-  <label>Name<input type="text" name="name" required></label>
-  <label>Company<input type="text" name="company"></label>
-  <label>Email<input type="email" name="email" required></label>
-  <label>Message<textarea name="message" rows="5" required></textarea></label>
-  <button type="submit" id="submit-button">Send Message</button>
-</form>
-
-<div id="thank-you-message" style="display:none;">
-  <h3>感謝您的聯絡！</h3>
-  <p>我們已經收到您的訊息，會盡快與您聯繫。</p>
-</div>
+        <form id="contact-form" action="https://formspree.io/f/meebpjlv" method="POST">
+          <label>Name<input type="text" name="name" required></label>
+          <label>Company<input type="text" name="company"></label>
+          <label>Email<input type="email" name="email" required></label>
+          <label>Message<textarea name="message" rows="5" required></textarea></label>
+          <button type="submit" id="submit-button">Send Message</button>
+        </form>
+        <div id="thank-you-message" style="display:none;">
+          <h3>感謝您的聯絡！</h3>
+          <p>我們已經收到您的訊息，會盡快與您聯繫。</p>
+        </div>
       </div>
     </section>
   </main>
@@ -245,31 +325,31 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <p>© 2026 福瑞株式会社 / Full Ray Co., Ltd.</p>
-      <p> AI Platform × Japan Selection × Global Markets </p>
+      <p>AI Platform × Japan Selection × Global Markets</p>
     </div>
   </footer>
-<script>
-      const form = document.getElementById("contact-form");
-      const thankYou = document.getElementById("thank-you-message");
 
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const formData = new FormData(form);
-        
-        const response = await fetch(form.action, {
-          method: "POST",
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
+  <script>
+    const form = document.getElementById("contact-form");
+    const thankYou = document.getElementById("thank-you-message");
 
-        if (response.ok) {
-          form.style.display = "none";
-          thankYou.style.display = "block";
-        } else {
-          alert("送出失敗，請再試一次。");
-        }
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: { 'Accept': 'application/json' }
       });
-    </script>
-  </body> 
-</html>
 
+      if (response.ok) {
+        form.style.display = "none";
+        thankYou.style.display = "block";
+      } else {
+        alert("送出失敗，請再試一次。");
+      }
+    });
+  </script>
+</body>
+</html>
