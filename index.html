@@ -226,14 +226,13 @@
           <p>日本商品の台湾展開、商品仕入れ、ブランド連携、越境販売に関するご相談は、下記フォームよりお問い合わせください。</p>
           <p class="zh">歡迎日本供應商、台灣企業與合作夥伴洽詢商品引進、品牌合作與跨境銷售機會。</p>
         </div>
-        <form class="contact-form" action="#" method="post">
-          <label>Name<input type="text" name="name" placeholder="Your name"></label>
-          <label>Company<input type="text" name="company" placeholder="Company name"></label>
-          <label>Email<input type="email" name="email" placeholder="your@email.com"></label>
-          <label>Message<textarea name="message" rows="5" placeholder="Please write your message"></textarea></label>
-          <button type="submit">Send Message</button>
-          <p class="form-note">※ このフォームはデザイン用です。公開時にSTUDIOまたはフォームサービスで送信設定を行ってください。</p>
-        </form>
+       <form class="contact-form" action="https://formspree.io/f/meebpjlv" method="POST">
+  <label>Name<input type="text" name="name" placeholder="Your name" required></label>
+  <label>Company<input type="text" name="company" placeholder="Company name"></label>
+  <label>Email<input type="email" name="email" placeholder="your@email.com" required></label>
+  <label>Message<textarea name="message" rows="5" placeholder="Please write your message" required></textarea></label>
+  <button type="submit">Send Message</button>
+</form>
       </div>
     </section>
   </main>
