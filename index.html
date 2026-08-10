@@ -356,12 +356,12 @@
           <div><dt>法人番号</dt><dd>7290001114326</dd></div>
           <div><dt>設立</dt><dd>2026年5月</dd></div>
           <div><dt>資本金</dt><dd>1,700万円</dd></div>
-          <div>
+         <div>
   <dt>所在地</dt>
-  <dd>
-    <span id="company-address">〒810-0001 福岡県福岡市中央区天神2丁目3-10 天神パインクレスト1114号室</span>
-    <button type="button" onclick="copyAddress()" style="border: none; background: transparent; cursor: pointer; color: var(--gold); margin-left: 8px; font-size: 14px; vertical-align: middle; padding: 2px 6px;" title="複製地址">
-      📋 <span id="copy-text" style="font-size: 12px; font-weight: 500;">複製</span>
+  <dd style="line-height: 1.6;">
+    <span id="company-address">〒810-0001 福岡県福岡市中央区天神2丁目3-10<br>天神パインクレスト1114号室</span>
+    <button type="button" onclick="copyAddress()" style="border: none; background: transparent; cursor: pointer; color: var(--gold); margin-left: 6px; font-size: 13px; vertical-align: middle; padding: 2px 4px;" title="Copy Address">
+      📋 <span id="copy-text" style="font-size: 12px; font-weight: 500;">Copy</span>
     </button>
   </dd>
 </div>
@@ -456,14 +456,16 @@
     e.preventDefault();
   });
 
-    // 複製地址功能
+  // 複製地址功能
   function copyAddress() {
-    const addressText = document.getElementById("company-address").innerText;
-    navigator.clipboard.writeText(addressText).then(function() {
+    const rawAddress = document.getElementById("company-address").innerText;
+    // 移除換行符號，確保複製到剪貼簿時是一整條完整地址
+    const cleanAddress = rawAddress.replace(/\n/g, ' ');
+    navigator.clipboard.writeText(cleanAddress).then(function() {
       const copyText = document.getElementById("copy-text");
-      copyText.innerText = "已複製！";
+      copyText.innerText = "Copied!";
       setTimeout(function() {
-        copyText.innerText = "複製";
+        copyText.innerText = "Copy";
       }, 2000);
     });
   }
