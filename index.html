@@ -417,6 +417,36 @@
         alert("送出失敗，請再試一次。");
       }
     });
+
+    // 1. 禁用滑鼠右鍵
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
+
+  // 2. 禁用常用快捷鍵 (F12, Ctrl+U, Ctrl+Shift+I, Cmd+Option+I 等)
+  document.addEventListener('keydown', function(e) {
+    if (e.keyCode === 123) {
+      e.preventDefault();
+      return false;
+    }
+    if ((e.ctrlKey || e.metaKey) && (e.keyCode === 85 || (e.altKey && e.keyCode === 85))) {
+      e.preventDefault();
+      return false;
+    }
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) {
+      e.preventDefault();
+      return false;
+    }
+    if ((e.ctrlKey || e.metaKey) && e.keyCode === 83) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // 3. 禁用文字選取
+  document.addEventListener('selectstart', function(e) {
+    e.preventDefault();
+  });
   </script>
 </body>
 </html>
